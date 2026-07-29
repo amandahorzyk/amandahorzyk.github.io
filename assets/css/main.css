@@ -1461,3 +1461,153 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/*--------------------------------------------------------------
+# Interactive CV
+--------------------------------------------------------------*/
+
+.cv-section {
+  background: #eeeeec;
+}
+
+.cv-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.cv-filter {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--heading-color);
+  border-radius: 999px;
+  color: var(--heading-color);
+  cursor: pointer;
+  font-family: var(--heading-font);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 8px 18px;
+  text-transform: uppercase;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cv-filter:hover {
+  transform: translateY(-2px);
+}
+
+.cv-filter.is-active {
+  background: var(--heading-color);
+  color: var(--contrast-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
+.cv-list {
+  border-top: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.cv-entry {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.cv-entry-summary {
+  align-items: start;
+  background: transparent;
+  border: 0;
+  color: var(--default-color);
+  cursor: pointer;
+  display: grid;
+  font: inherit;
+  gap: 24px;
+  grid-template-columns:
+    minmax(250px, 2.6fr)
+    minmax(130px, 1fr)
+    minmax(150px, 1.3fr)
+    80px;
+  padding: 20px 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.cv-entry-summary:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.cv-entry-summary:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: -2px;
+}
+
+.cv-entry-title {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.cv-entry-role,
+.cv-entry-place,
+.cv-entry-date {
+  color: var(--heading-color);
+}
+
+.cv-entry-date {
+  text-align: right;
+}
+
+.cv-entry-details {
+  max-width: 800px;
+  padding: 0 10px 24px;
+}
+
+.cv-entry-details p {
+  margin-bottom: 10px;
+}
+
+.cv-entry-details a {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.cv-entry[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .cv-entry-summary {
+    grid-template-columns: minmax(200px, 2fr) 1fr 80px;
+  }
+
+  .cv-entry-place {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .cv-entry-summary {
+    gap: 8px;
+    grid-template-columns: 1fr auto;
+    padding: 18px 4px;
+  }
+
+  .cv-entry-title {
+    grid-column: 1;
+  }
+
+  .cv-entry-role {
+    grid-column: 1;
+  }
+
+  .cv-entry-date {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .cv-entry-place {
+    display: none;
+  }
+}
