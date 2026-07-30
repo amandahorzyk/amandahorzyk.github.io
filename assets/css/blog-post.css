@@ -2,6 +2,32 @@
    Vintage editorial article
    ========================================================== */
 
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Roboto+Condensed:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap");
+.blog-post-page {
+  --article-sans: "IBM Plex Sans", Arial, Helvetica, sans-serif;
+  --article-mono: "IBM Plex Mono", "Courier New", monospace;
+}
+
+.blog-post-page .article-copy {
+  font-family: var(--article-sans);
+}
+
+.blog-post-page .article-copy h2,
+.blog-post-page .article-copy h3,
+.blog-post-page .article-date-chip,
+.blog-post-page .article-toc-title,
+.blog-post-page .article-toc a,
+.blog-post-page .article-tags span,
+.blog-post-page .article-author span,
+.blog-post-page .article-author strong {
+  font-family: var(--article-mono);
+}
+
+.blog-post-page .article-lead,
+.blog-post-page .article-deck {
+  font-family: var(--article-sans);
+}
+
 .blog-post-page {
   --paper: #f3ede3;
   --paper-light: #faf7f1;
@@ -482,4 +508,180 @@
   .article-copy {
     font-size: 17px;
   }
+}
+
+/* ==========================================================
+   FINAL BLOG TYPOGRAPHY AND PAPER OVERRIDES
+   Keep this block at the absolute bottom of blog-post.css
+   ========================================================== */
+
+.blog-post-page {
+  --article-body-font:
+    "Nunito",
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  --article-heading-font:
+    "Roboto Condensed",
+    Arial,
+    sans-serif;
+
+  --article-label-font:
+    "Roboto Mono",
+    "Courier New",
+    monospace;
+
+  --article-brown: #4c4037;
+  --article-brown-soft: #76665a;
+  --article-brown-light: #9b7a61;
+  --article-paper: #f5efe6;
+}
+
+/* Remove white cards behind article sections */
+
+.blog-post-page .editorial-post,
+.blog-post-page .editorial-shell,
+.blog-post-page .article-layout,
+.blog-post-page .article-copy,
+.blog-post-page .article-copy > section,
+.blog-post-page .article-copy section {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.blog-post-page .article-copy > section,
+.blog-post-page .article-copy section {
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+/* A subtle separator instead of a white box */
+
+.blog-post-page .article-copy section + section {
+  margin-top: 64px !important;
+  padding-top: 54px !important;
+  border-top: 1px solid rgba(76, 64, 55, 0.2) !important;
+}
+
+.blog-post-page,
+.blog-post-page p,
+.blog-post-page li,
+.blog-post-page .article-copy,
+.blog-post-page .article-deck,
+.blog-post-page .article-lead {
+  color: var(--article-brown) !important;
+}
+
+.blog-post-page .article-author span,
+.blog-post-page .blog-post-meta,
+.blog-post-page .article-toc-title,
+.blog-post-page .article-toc a {
+  color: var(--article-brown-soft) !important;
+}
+
+.blog-post-page .editorial-header h1,
+.blog-post-page .article-copy h2,
+.blog-post-page .article-copy h3 {
+  color: var(--article-brown) !important;
+  font-family: var(--article-heading-font) !important;
+  font-weight: 500;
+  font-stretch: condensed;
+}
+
+.blog-post-page .editorial-header h1 {
+  max-width: 980px;
+  font-size: clamp(48px, 6vw, 88px);
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+}
+
+.blog-post-page .article-copy h2 {
+  margin-bottom: 25px;
+  font-size: clamp(31px, 3.3vw, 46px);
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+}
+
+.blog-post-page .article-copy h3 {
+  font-size: clamp(23px, 2.4vw, 31px);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.blog-post-page .article-copy,
+.blog-post-page .article-copy p,
+.blog-post-page .article-lead,
+.blog-post-page .article-deck {
+  font-family: var(--article-body-font) !important;
+}
+
+.blog-post-page .article-copy {
+  color: var(--article-brown) !important;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+.blog-post-page .article-lead {
+  color: var(--article-brown) !important;
+  font-size: clamp(22px, 2.2vw, 29px);
+  font-weight: 500;
+  line-height: 1.58;
+}
+
+.blog-post-page .paper-quote {
+  margin: 52px 0;
+  padding: 46px 48px 38px;
+
+  color: var(--article-brown) !important;
+  border: 1px solid rgba(112, 84, 63, 0.22);
+
+  background-color: var(--article-paper) !important;
+  background-image:
+    linear-gradient(
+      rgba(112, 94, 76, 0.1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(112, 94, 76, 0.1) 1px,
+      transparent 1px
+    ) !important;
+
+  background-size: 17px 17px !important;
+  box-shadow: 7px 8px 0 rgba(112, 84, 63, 0.09) !important;
+}
+
+.blog-post-page .paper-quote p {
+  color: var(--article-brown) !important;
+  font-family: var(--article-body-font) !important;
+  font-size: clamp(24px, 2.7vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.45;
+}
+
+.blog-post-page .paper-quote::before {
+  color: var(--article-brown-light) !important;
+  font-family: Georgia, serif;
+}
+
+.blog-post-page .paper-quote cite {
+  color: var(--article-brown-light) !important;
+  font-family: var(--article-label-font) !important;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.blog-post-page .article-date-chip,
+.blog-post-page .article-tags span,
+.blog-post-page .article-author span,
+.blog-post-page .article-author strong,
+.blog-post-page .article-toc-title,
+.blog-post-page .article-toc a {
+  font-family: var(--article-label-font) !important;
 }
