@@ -1,0 +1,136 @@
+---
+layout: null
+title: Blog
+permalink: /blog/
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Blog | Amanda Maria Horzyk</title>
+  <meta name="description" content="{{ site.description | escape }}">
+
+  <link href="{{ '/assets/img/favicon.png' | relative_url }}" rel="icon">
+  <link href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}" rel="apple-touch-icon">
+
+  <link href="{{ '/assets/vendor/bootstrap/css/bootstrap.min.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/assets/vendor/bootstrap-icons/bootstrap-icons.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/assets/vendor/aos/aos.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/assets/css/main.css?v=jekyll-blog-1' | relative_url }}" rel="stylesheet">
+</head>
+
+<body class="starter-page-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="{{ '/index.html' | relative_url }}" class="logo d-flex align-items-center">
+        <h1 class="sitename">Amanda Maria Horzyk</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ '/index.html#hero' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/index.html#about' | relative_url }}">About</a></li>
+          <li><a href="{{ '/index.html#projects' | relative_url }}">Projects</a></li>
+          <li><a href="{{ '/index.html#cv' | relative_url }}">CV</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}" class="active">Blog</a></li>
+          <li><a href="{{ '/index.html#contact' | relative_url }}">Contact</a></li>
+        </ul>
+
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section class="blog-section section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Blog</h2>
+        <p>
+          Reflections on artificial intelligence, law, policy,
+          human dignity and responsible innovation.
+        </p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-5">
+
+          {% for post in site.posts %}
+          <div class="col-lg-4 col-md-6">
+            <article class="blog-card">
+
+              {% if post.image %}
+              <img
+                src="{{ post.image | relative_url }}"
+                alt="{{ post.image_alt | default: post.title | escape }}"
+              >
+              {% endif %}
+
+              <div class="blog-card-content">
+                <div class="blog-meta">
+                  <time datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date: "%d %B %Y" }}
+                  </time>
+
+                  {% if post.tags and post.tags.size > 0 %}
+                  <span>{{ post.tags | first }}</span>
+                  {% endif %}
+                </div>
+
+                <h3>
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h3>
+
+                <p>{{ post.description }}</p>
+
+                <a href="{{ post.url | relative_url }}" class="blog-read-more">
+                  Read article <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+
+            </article>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">Amanda Maria Horzyk</h3>
+      <p>{{ site.description }}</p>
+
+      <div class="copyright">
+        <span>Copyright</span>
+        <strong class="px-1 sitename">Amanda Maria Horzyk</strong>
+        <span>All Rights Reserved</span>
+      </div>
+
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        | <a href="https://bootstrapmade.com/tools/">DevTools</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <div id="preloader"></div>
+
+  <script src="{{ '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/vendor/aos/aos.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+</body>
+</html>

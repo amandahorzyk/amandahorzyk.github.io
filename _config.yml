@@ -1,0 +1,28 @@
+title: Amanda Maria Horzyk
+description: Research, writing and public engagement on artificial intelligence, law, policy, human dignity and responsible innovation.
+url: "https://amandahorzyk.github.io"
+baseurl: ""
+timezone: Europe/London
+
+permalink: /blog/:title/
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Amanda Maria Horzyk
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - SETUP.md
+  - snippets

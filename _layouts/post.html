@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{{ page.title | escape }} | Amanda Maria Horzyk</title>
+  <meta name="description" content="{{ page.description | default: site.description | strip_html | escape }}">
+  <meta name="keywords" content="{{ page.tags | join: ', ' | escape }}">
+
+  <link href="{{ '/assets/img/favicon.png' | relative_url }}" rel="icon">
+  <link href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}" rel="apple-touch-icon">
+
+  <link href="{{ '/assets/vendor/bootstrap/css/bootstrap.min.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/assets/vendor/bootstrap-icons/bootstrap-icons.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/assets/vendor/aos/aos.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/assets/vendor/swiper/swiper-bundle.min.css' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/assets/vendor/glightbox/css/glightbox.min.css' | relative_url }}" rel="stylesheet">
+
+  <link href="{{ '/assets/css/main.css?v=jekyll-blog-1' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/assets/css/blog-post.css?v=jekyll-blog-1' | relative_url }}" rel="stylesheet">
+  <link href="{{ '/assets/css/jekyll-blog.css?v=jekyll-blog-1' | relative_url }}" rel="stylesheet">
+</head>
+
+<body class="blog-post-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="{{ '/index.html' | relative_url }}" class="logo d-flex align-items-center">
+        <h1 class="sitename">Amanda Maria Horzyk</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ '/index.html#hero' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/index.html#about' | relative_url }}">About</a></li>
+          <li><a href="{{ '/index.html#projects' | relative_url }}">Projects</a></li>
+          <li><a href="{{ '/index.html#cv' | relative_url }}">CV</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}" class="active">Blog</a></li>
+          <li><a href="{{ '/index.html#contact' | relative_url }}">Contact</a></li>
+        </ul>
+
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <article class="editorial-post">
+
+      <div class="editorial-shell">
+
+        <header class="editorial-header">
+
+          <time class="article-date-chip" datetime="{{ page.date | date_to_xmlschema }}">
+            {{ page.date | date: "%d %B %Y" }}
+          </time>
+
+          <h1>{{ page.title }}</h1>
+
+          {% if page.image %}
+          <figure class="editorial-hero">
+            <img
+              src="{{ page.image | relative_url }}"
+              alt="{{ page.image_alt | default: page.title | escape }}"
+            >
+          </figure>
+          {% endif %}
+
+          <div class="article-identity">
+
+            <div class="article-author">
+              <span>Written by</span>
+              <strong>{{ page.author | default: "Amanda Maria Horzyk" }}</strong>
+            </div>
+
+            {% if page.tags %}
+            <div class="article-tags" aria-label="Article topics">
+              {% for tag in page.tags %}
+              <span>{{ tag }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+          </div>
+
+          {% if page.description %}
+          <p class="article-deck">{{ page.description }}</p>
+          {% endif %}
+
+        </header>
+
+        <div class="article-layout">
+
+          <aside class="article-toc" aria-label="Article contents">
+            <p class="article-toc-title">In this article</p>
+            <nav></nav>
+          </aside>
+
+          <div class="article-copy">
+            <span id="introduction" class="article-anchor" aria-hidden="true"></span>
+
+            {% if page.lead %}
+            <p class="article-lead">{{ page.lead }}</p>
+            {% endif %}
+
+            {{ content }}
+          </div>
+
+        </div>
+
+        <footer class="editorial-post-footer">
+          <a href="{{ '/blog/' | relative_url }}">
+            <i class="bi bi-arrow-left"></i>
+            Return to all articles
+          </a>
+        </footer>
+
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">Amanda Maria Horzyk</h3>
+
+      <p>
+        Research, writing and public engagement on artificial intelligence,
+        law, policy, human dignity and responsible innovation.
+      </p>
+
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span>
+          <strong class="px-1 sitename">Amanda Maria Horzyk</strong>
+          <span>All Rights Reserved</span>
+        </div>
+
+        <div class="credits">
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          | <a href="https://bootstrapmade.com/tools/">DevTools</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <div id="preloader"></div>
+
+  <script src="{{ '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/vendor/php-email-form/validate.js' | relative_url }}"></script>
+  <script src="{{ '/assets/vendor/aos/aos.js' | relative_url }}"></script>
+  <script src="{{ '/assets/vendor/typed.js/typed.umd.js' | relative_url }}"></script>
+  <script src="{{ '/assets/vendor/swiper/swiper-bundle.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/vendor/glightbox/js/glightbox.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/vendor/isotope-layout/isotope.pkgd.min.js' | relative_url }}"></script>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/blog-post.js?v=jekyll-blog-1' | relative_url }}"></script>
+
+</body>
+</html>

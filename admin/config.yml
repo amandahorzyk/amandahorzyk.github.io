@@ -1,0 +1,110 @@
+# Replace the base_url below after deploying your GitHub OAuth proxy.
+backend:
+  name: github
+  repo: amandahorzyk/amandahorzyk.github.io
+  branch: main
+  base_url: https://REPLACE-WITH-YOUR-OAUTH-PROXY.workers.dev
+  auth_endpoint: auth
+  site_domain: amandahorzyk.github.io
+  use_graphql: true
+  squash_merges: true
+
+# "simple" publishes directly to main.
+# Change to "editorial_workflow" later if you want drafts and review.
+publish_mode: simple
+
+site_url: https://amandahorzyk.github.io
+display_url: https://amandahorzyk.github.io
+
+media_folder: "assets/img/blog/uploads"
+public_folder: "/assets/img/blog/uploads"
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+editor:
+  preview: false
+
+collections:
+  - name: blog
+    label: Blog posts
+    label_singular: Blog post
+    folder: "_posts"
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "blog/{{slug}}/"
+    summary: "{{date}} — {{title}}"
+    sortable_fields:
+      fields:
+        - date
+        - title
+      default:
+        field: date
+        direction: Descending
+
+    fields:
+      - label: Layout
+        name: layout
+        widget: hidden
+        default: post
+
+      - label: Title
+        name: title
+        widget: string
+
+      - label: Publication date
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD HH:mm:ss Z"
+        date_format: "DD MMMM YYYY"
+        time_format: "HH:mm"
+
+      - label: Card summary
+        name: description
+        widget: text
+        hint: This appears beneath the title on the homepage and at the top of the article.
+
+      - label: Opening paragraph
+        name: lead
+        widget: text
+        required: false
+        hint: A larger introductory paragraph shown before the main article.
+
+      - label: Hero image
+        name: image
+        widget: image
+
+      - label: Hero image description
+        name: image_alt
+        widget: string
+        hint: Describe the image for accessibility.
+
+      - label: Author
+        name: author
+        widget: string
+        default: Amanda Maria Horzyk
+
+      - label: Tags
+        name: tags
+        widget: list
+        allow_add: true
+        collapsed: false
+
+      - label: Article
+        name: body
+        widget: markdown
+        buttons:
+          - bold
+          - italic
+          - link
+          - heading-two
+          - heading-three
+          - quote
+          - bulleted-list
+          - numbered-list
+        editor_components:
+          - image

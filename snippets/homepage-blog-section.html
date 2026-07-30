@@ -1,0 +1,69 @@
+<!--
+  JEKYLL HOMEPAGE BLOG SECTION
+
+  1. Add these two lines before <!DOCTYPE html> in the root index.html:
+     ---
+     ---
+
+  2. Replace the current <section id="blog">...</section> with this block.
+-->
+<section id="blog" class="blog-section section">
+
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Blog</h2>
+    <p>
+      Reflections on artificial intelligence, law, policy,
+      human dignity and responsible innovation.
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="row gy-4">
+
+      {% for post in site.posts limit: 3 %}
+      <div class="col-lg-4 col-md-6">
+        <article class="blog-card" data-aos="fade-up">
+
+          {% if post.image %}
+          <img
+            src="{{ post.image | relative_url }}"
+            alt="{{ post.image_alt | default: post.title | escape }}"
+          >
+          {% endif %}
+
+          <div class="blog-card-content">
+
+            <div class="blog-meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">
+                {{ post.date | date: "%d %B %Y" }}
+              </time>
+
+              {% if post.tags and post.tags.size > 0 %}
+              <span>{{ post.tags | first }}</span>
+              {% endif %}
+            </div>
+
+            <h3>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h3>
+
+            <p>{{ post.description }}</p>
+
+            <a href="{{ post.url | relative_url }}" class="blog-read-more">
+              Read article <i class="bi bi-arrow-right"></i>
+            </a>
+
+          </div>
+
+        </article>
+      </div>
+      {% endfor %}
+
+    </div>
+
+    <div class="blog-all-link">
+      <a href="{{ '/blog/' | relative_url }}">View all articles</a>
+    </div>
+  </div>
+
+</section>

@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -523,7 +525,6 @@
       </div>
     </section>
 
-    <!-- Blog Section -->
     <section id="blog" class="blog-section section">
 
       <div class="container section-title" data-aos="fade-up">
@@ -537,122 +538,54 @@
       <div class="container">
         <div class="row gy-4">
 
-          <!-- Blog post 1 -->
+          {% for post in site.posts limit: 3 %}
           <div class="col-lg-4 col-md-6">
-            <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+            <article class="blog-card" data-aos="fade-up">
 
+              {% if post.image %}
               <img
-                src="assets/img/blog/human-dignity-ai.jpg"
-                alt="Human dignity and artificial intelligence"
+                src="{{ post.image | relative_url }}"
+                alt="{{ post.image_alt | default: post.title | escape }}"
               >
+              {% endif %}
 
               <div class="blog-card-content">
+
                 <div class="blog-meta">
-                  <time datetime="2026-07-30">30 July 2026</time>
-                  <span>AI Ethics</span>
+                  <time datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date: "%d %B %Y" }}
+                  </time>
+
+                  {% if post.tags and post.tags.size > 0 %}
+                  <span>{{ post.tags | first }}</span>
+                  {% endif %}
                 </div>
 
                 <h3>
-                  <a href="blog/human-dignity-and-ai.html">
-                    Human Dignity in the Age of Artificial Intelligence
-                  </a>
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
                 </h3>
 
-                <p>
-                  Why human dignity, rights and flourishing should remain
-                  central to the governance of artificial intelligence.
-                </p>
+                <p>{{ post.description }}</p>
 
-                <a
-                  href="blog/human-dignity-and-ai.html"
-                  class="blog-read-more"
-                >
+                <a href="{{ post.url | relative_url }}" class="blog-read-more">
                   Read article <i class="bi bi-arrow-right"></i>
                 </a>
+
               </div>
 
             </article>
           </div>
+          {% endfor %}
 
-          <!-- Blog post 2 -->
-          <div class="col-lg-4 col-md-6">
-            <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+        </div>
 
-              <img
-                src="assets/img/blog/ai-law-policy.jpg"
-                alt="Artificial intelligence law and policy"
-              >
-
-              <div class="blog-card-content">
-                <div class="blog-meta">
-                  <time datetime="2026-07-20">20 July 2026</time>
-                  <span>AI Law</span>
-                </div>
-
-                <h3>
-                  <a href="blog/ai-law-and-policy.html">
-                    Building Responsible AI Law and Policy
-                  </a>
-                </h3>
-
-                <p>
-                  Reflections on creating governance frameworks that remain
-                  meaningful as artificial intelligence continues to evolve.
-                </p>
-
-                <a
-                  href="blog/ai-law-and-policy.html"
-                  class="blog-read-more"
-                >
-                  Read article <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-
-            </article>
-          </div>
-
-          <!-- Blog post 3 -->
-          <div class="col-lg-4 col-md-6">
-            <article class="blog-card" data-aos="fade-up" data-aos-delay="300">
-
-              <img
-                src="assets/img/blog/doctoral-research.jpg"
-                alt="Doctoral research"
-              >
-
-              <div class="blog-card-content">
-                <div class="blog-meta">
-                  <time datetime="2026-07-10">10 July 2026</time>
-                  <span>Research</span>
-                </div>
-
-                <h3>
-                  <a href="blog/doctoral-research-reflections.html">
-                    Reflections from My Doctoral Research
-                  </a>
-                </h3>
-
-                <p>
-                  Notes on interdisciplinary research at the intersection of
-                  technology, law, ethics and public policy.
-                </p>
-
-                <a
-                  href="blog/doctoral-research-reflections.html"
-                  class="blog-read-more"
-                >
-                  Read article <i class="bi bi-arrow-right"></i>
-                </a>
-              </div>
-
-            </article>
-          </div>
-
+        <div class="blog-all-link">
+          <a href="{{ '/blog/' | relative_url }}">View all articles</a>
         </div>
       </div>
 
     </section>
-    <!-- /Blog Section -->
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
