@@ -3,8 +3,8 @@ backend:
   name: github
   repo: amandahorzyk/amandahorzyk.github.io
   branch: main
-  base_url: https://REPLACE-WITH-YOUR-OAUTH-PROXY.workers.dev
-  auth_endpoint: auth
+  base_url: https://amanda-decap-oauth.amandahorzyk.workers.dev
+  auth_endpoint: /auth
   site_domain: amandahorzyk.github.io
   use_graphql: true
   squash_merges: true
