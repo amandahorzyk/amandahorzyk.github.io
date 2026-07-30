@@ -1701,3 +1701,68 @@ section,
   visibility: visible;
   transform: translateY(0);
 }
+
+/* Projects — correct icon and content alignment */
+
+#projects .row {
+  row-gap: 55px;
+}
+
+#projects .service-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 18px !important;
+
+  position: relative;
+  margin: 0 !important;
+  padding: 0 20px !important;
+}
+
+/* Fixed icon column */
+#projects .service-item .icon {
+  position: static !important;
+  flex: 0 0 30px !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px !important;
+  height: 30px !important;
+  margin: 5px 0 0 !important;
+  padding: 0 !important;
+}
+
+#projects .service-item .icon i {
+  display: block;
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* Text column */
+#projects .service-item > div:last-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Project title */
+#projects .service-item .title {
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  line-height: 1.2;
+}
+
+/* Description */
+#projects .service-item .description {
+  margin: 0 0 22px !important;
+  padding: 0 !important;
+  line-height: 1.55;
+}
+
+/* Learn More */
+#projects .service-item .readmore {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 !important;
+  padding: 0 !important;
+}
