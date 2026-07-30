@@ -650,6 +650,32 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/cv.js"></script>
+
+  <script>
+    function updateHeaderSiteName() {
+      const header = document.querySelector("#header");
+      const hero = document.querySelector("#hero");
+
+      if (!header || !hero) {
+        return;
+      }
+
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      const headerHeight = header.offsetHeight;
+
+      header.classList.toggle(
+        "past-hero",
+        heroBottom <= headerHeight
+      );
+    }
+
+    window.addEventListener("load", updateHeaderSiteName);
+    window.addEventListener("scroll", updateHeaderSiteName, {
+      passive: true
+    });
+    window.addEventListener("resize", updateHeaderSiteName);
+  </script>
+
 </body>
 
 </html>

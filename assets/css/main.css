@@ -678,13 +678,13 @@ section,
 
 .hero h2 {
   margin: 0;
-  font-size: 64px;
+  font-size: 35px;
   font-weight: 700;
 }
 
 .hero p {
   margin: 5px 0 0 0;
-  font-size: 26px;
+  font-size: 20px;
 }
 
 .hero p span {
@@ -1682,4 +1682,22 @@ section,
   height: 22px;
   font-size: 9px;
   border-width: 2px;
+}
+
+/* Hide the header site name while the hero section is visible */
+#header .logo .sitename {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    visibility 0.35s ease;
+}
+
+/* Reveal it after scrolling beyond the hero */
+#header.past-hero .logo .sitename {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
