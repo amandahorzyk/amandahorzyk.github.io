@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Human Dignity in the Age of Artificial Intelligence Today
-date: 2026-07-31 12:00:00 +01:00
+title: Human Dignity in the Age of Artificial Intelligence
+date: 2026-07-30 12:00:00 +01:00
 description: "Artificial intelligence is often discussed through the language of
   innovation, efficiency and economic growth. Yet its deepest consequences
   concern something more fundamental: our understanding of the human person."
 lead: Artificial intelligence now mediates increasingly important decisions
   about work, education, public services, communication and access to
-  opportunity.
+  opportunity. Today
 image: /assets/img/blog/human-dignity-ai.jpg
 image_alt: Amanda Maria Horzyk in conversation at the Vatican
 author: Amanda Maria Horzyk
