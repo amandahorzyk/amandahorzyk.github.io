@@ -101,3 +101,37 @@ collections:
           - numbered-list
         editor_components:
           - image
+          
+  - name: provocations
+    label: Provocations
+    label_singular: Provocation
+    folder: "_provocations"
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{quote}}"
+
+    fields:
+      - label: Theme
+        name: title
+        widget: string
+        hint: "A short theme or tag, for example Human Dignity."
+
+      - label: Publication date
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD HH:mm:ss Z"
+
+      - label: Provocation
+        name: quote
+        widget: text
+        hint: "A short reflection or question containing no more than 30 words."
+        pattern:
+          - '^\s*(?:\S+\s+){0,29}\S+\s*$'
+          - "Please keep the provocation to 30 words or fewer."
+
+      - label: Display on website
+        name: published
+        widget: boolean
+        default: true
