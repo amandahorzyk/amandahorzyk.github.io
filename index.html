@@ -275,36 +275,40 @@
 
           <div class="swiper-wrapper">
 
-            {% assign provocations = site.provocations | sort: "date" | reverse %}
+            {% if site.provocations %}
 
-            {% for provocation in provocations %}
-              {% unless provocation.published == false %}
+              {% assign provocations = site.provocations | sort: "date" | reverse %}
 
-                <div class="swiper-slide">
-                  <div class="testimonial-item">
+              {% for provocation in provocations %}
+                {% unless provocation.published == false %}
 
-                    <h4>{{ provocation.title | escape }}</h4>
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
 
-                    <p>
-                      <i class="bi bi-quote quote-icon-left"></i>
+                      <h4>{{ provocation.title | escape }}</h4>
 
-                      <span>
-                        {{ provocation.quote | escape }}
-                      </span>
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
 
-                      <i class="bi bi-quote quote-icon-right"></i>
-                    </p>
+                        <span>
+                          {{ provocation.quote | escape }}
+                        </span>
 
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+
+                    </div>
                   </div>
-                </div>
 
-              {% endunless %}
-            {% endfor %}
+                {% endunless %}
+              {% endfor %}
+              
+            {% endif %}
 
           </div>
 
           <div class="swiper-pagination"></div>
-          
+
         </div>
 
       </div>

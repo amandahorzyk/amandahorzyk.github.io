@@ -4,6 +4,10 @@ url: "https://amandahorzyk.github.io"
 baseurl: ""
 timezone: Europe/London
 
+collections:
+  provocations:
+    output: false
+
 permalink: /blog/:title/
 markdown: kramdown
 
