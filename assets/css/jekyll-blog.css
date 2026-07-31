@@ -6,6 +6,24 @@
   scroll-margin-top: 140px;
 }
 
+.article-toc nav {
+  display: block;
+}
+
+.article-toc a {
+  display: flex;
+}
+
+.article-toc a.toc-subitem {
+  padding-left: 16px;
+  font-size: 0.92em;
+}
+
+.article-toc a.toc-subitem:hover,
+.article-toc a.toc-subitem.active {
+  padding-left: 22px;
+}
+
 .article-copy > p,
 .article-copy > h2,
 .article-copy > h3,
