@@ -444,3 +444,214 @@
     font-size: 1.65rem;
   }
 }
+
+/* =========================================================
+   FEATURED BLOG LAYOUT OVERRIDES
+   ========================================================= */
+
+/* Remove the white central sheet */
+html,
+body {
+  background: #f2eee8;
+}
+
+main.journal-page {
+  background: #f2eee8 !important;
+}
+
+.journal-container,
+.journal-introduction,
+.journal-toolbar,
+.journal-grid {
+  background: transparent !important;
+}
+
+/*
+  More space between the journal content and the browser edges.
+  Change 80px to 60px or 100px depending on your preference.
+*/
+.journal-container {
+  width: min(1180px, calc(100% - 80px));
+  margin-inline: auto;
+}
+
+/* Slightly shorter featured image */
+.journal-featured {
+  min-height: 470px;
+}
+
+/* Stronger lower gradient for readable text */
+.journal-featured-shade {
+  background:
+    linear-gradient(
+      0deg,
+      rgba(27, 22, 18, 0.88) 0%,
+      rgba(27, 22, 18, 0.55) 34%,
+      rgba(27, 22, 18, 0.08) 72%
+    );
+}
+
+/*
+  Place all featured information at the bottom.
+  The text remains on the left while the metadata spans the width.
+*/
+.journal-featured-content {
+  left: 34px;
+  right: 34px;
+  bottom: 28px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  column-gap: 28px;
+
+  color: #fff;
+}
+
+/* Keyword/tag */
+.journal-featured-tag {
+  grid-column: 1 / -1;
+
+  margin: 0 0 10px;
+  padding: 5px 11px;
+
+  font-size: 0.67rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  background: rgba(36, 30, 26, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+}
+
+/* Smaller featured title */
+.journal-featured h1 {
+  grid-column: 1 / -1;
+
+  max-width: 650px;
+  margin: 0 0 8px;
+
+  font-size: clamp(2rem, 3.5vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-align: left;
+}
+
+/* Smaller description */
+.journal-featured-content > p {
+  grid-column: 1 / -1;
+
+  max-width: 590px;
+  margin: 0 0 18px;
+
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/*
+  Metadata row:
+  author bubble on the left,
+  date/read time bubble on the right.
+*/
+.journal-featured-meta {
+  grid-column: 1 / -1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  width: 100%;
+  max-width: none;
+  margin: 0;
+
+  font-size: 0.72rem;
+}
+
+/* Author pill */
+.journal-featured .journal-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  width: fit-content;
+  padding: 5px 11px 5px 6px;
+
+  background: rgba(30, 25, 21, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+/* Author image */
+.journal-featured .journal-author img {
+  width: 25px;
+  height: 25px;
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+}
+
+/* Date/read-time pill on bottom right */
+.journal-featured .journal-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  width: fit-content;
+  margin-left: auto;
+  padding: 8px 12px;
+
+  background: rgba(30, 25, 21, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 720px) {
+  .journal-container {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .journal-featured {
+    min-height: 500px;
+  }
+
+  .journal-featured-content {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    display: block;
+  }
+
+  .journal-featured h1 {
+    font-size: 2.25rem;
+  }
+
+  .journal-featured-content > p {
+    font-size: 0.84rem;
+  }
+
+  .journal-featured-meta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .journal-featured .journal-author,
+  .journal-featured .journal-date {
+    font-size: 0.64rem;
+  }
+
+  .journal-featured .journal-author span {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
